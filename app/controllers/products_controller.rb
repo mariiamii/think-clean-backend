@@ -6,13 +6,11 @@ class ProductsController < ApplicationController
 
     def show
         @product = Product.find(params[:id])
-        render json: product
+        render json: @product
     end 
 
-
-    def destroy
-        @product = Product.find(params[:id])
-        product.destroy
+    def create
+        @product = Product.create(product_params)
         render json: @product
     end
 
@@ -24,6 +22,12 @@ class ProductsController < ApplicationController
     def update
         @product = Product.find(params[:id])
         @product.update(product_params)
+        render json: @product
+    end
+
+    def destroy
+        @product = Product.find(params[:id])
+        @product.destroy
         render json: @product
     end
 

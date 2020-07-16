@@ -14,7 +14,7 @@ Favorite.destroy_all
 #Users
 u1 = User.create(name: "Mari", username: "mari", password: "123")
 
-c1 = Category.create(name: "skincare")
+c1 = Category.create(name: "Skincare")
 c2 = Category.create(name: "Makeup")
 c3 = Category.create(name: "Hair")
 
