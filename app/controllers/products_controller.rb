@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+    # before_action :authorized, only: [:create]
+    
     def index 
         @products = Product.all
         render json: @products
@@ -9,8 +11,13 @@ class ProductsController < ApplicationController
         render json: @product
     end 
 
+    # def create
+    #     @product = Product.create(product_params)
+    #     render json: @product
+    # end
+
     def create
-        @product = Product.create(product_params)
+        @product = @user.products.create(brand_name: params[:brand_name], product_name: params[:product_name], description: params[:description], image_url: params[:image_url], website: params[:website])
         render json: @product
     end
 
